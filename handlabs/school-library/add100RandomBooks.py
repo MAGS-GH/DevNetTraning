@@ -36,6 +36,20 @@ def addBook(book, apiKey):
 
 # Get the Auth Token Key
 apiKey = getAuthToken()
+        
+def addBook(book, apiKey): 
+    r = requests.post( 
+        f"{APIHOST}/api/v1/books",  
+        headers = { 
+            "Content-type": "application/json", 
+            "X-API-Key": apiKey 
+        }, 
+        data = json.dumps(book)
+    )
+    if r.status_code == 200: 
+        print(f"Book {book} added.") 
+    else: 
+        raise Exception(f"Error code {r.status_code} and text {r.text}, while trying to add book {book}.") 
 
 # Using the faker module, generate random "fake" books
 fake = Faker()
