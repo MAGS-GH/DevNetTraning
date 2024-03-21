@@ -18,7 +18,7 @@ class json_search_test(unittest.TestCase):
         unittest.main() 
 
 def json_search(key,input_object): 
-ret_val=[] 
+    ret_val=[] 
     def inner_function(key,input_object): 
         if isinstance(input_object, dict): # Iterate dictionary 
             for k, v in input_object.items(): # searching key in the dict 
